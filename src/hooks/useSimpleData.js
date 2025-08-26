@@ -62,3 +62,11 @@ export function useTrafficChart() {
 export function useDailyUsers(days = 30) {
   return useSimpleData('/api/charts/daily-users', { days });
 }
+
+export function useTopProducts(limit = 50) {
+  return useSimpleData('/api/products/top', { limit });
+}
+
+export function useRecentUsers(limit = 50) {
+  return useSimpleData('/api/users/recent', { limit });
+}

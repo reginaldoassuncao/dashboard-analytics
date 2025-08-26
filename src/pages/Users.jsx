@@ -1,8 +1,17 @@
+import UsersTable from '../components/table/UsersTable';
+import styles from './Users.module.css';
+
 function Users() {
   return (
-    <div>
-      <h1>Usuários</h1>
-      <p>Página de gestão de usuários e comportamento</p>
+    <div className={styles.users}>
+      <div className={styles.header}>
+        <h1 className={styles.title}>Gestão de Usuários</h1>
+        <p className={styles.subtitle}>
+          Visualize e analise o comportamento dos usuários da plataforma
+        </p>
+      </div>
+      
+      <UsersTable />
     </div>
   )
 }
