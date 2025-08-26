@@ -4,16 +4,21 @@
   top: 0;
   height: 100vh;
   width: var(--sidebar-width);
-  background-color: white;
-  border-right: 1px solid var(--gray-200);
+  background-color: var(--sidebar-bg, white);
+  border-right: 1px solid var(--border-color, var(--gray-200));
   display: flex;
   flex-direction: column;
-  transition: width 0.3s ease;
+  transition: all 0.3s ease;
   z-index: 100;
 }
 
 .collapsed {
   width: var(--sidebar-width-collapsed);
+}
+
+.hidden {
+  transform: translateX(-100%);
+  opacity: 0;
 }
 
 .header {

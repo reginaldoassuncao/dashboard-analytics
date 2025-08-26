@@ -2,6 +2,17 @@
   display: flex;
   height: 100vh;
   overflow: hidden;
+  background-color: var(--body-bg, var(--gray-50));
+  transition: background-color 0.3s ease;
+}
+
+.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
 }
 
 .main {
@@ -16,11 +27,18 @@
   margin-left: var(--sidebar-width-collapsed);
 }
 
+.mainFullscreen {
+  margin-left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
 .content {
   flex: 1;
   padding: var(--space-6);
   overflow-y: auto;
-  background-color: var(--gray-50);
+  background-color: var(--content-bg, var(--gray-50));
+  transition: all 0.3s ease;
 }
 
 @media (max-width: 768px) {

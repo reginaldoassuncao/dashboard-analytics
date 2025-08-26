@@ -1,0 +1,239 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--card-bg, white);
+  border: 1px solid var(--border-color, var(--gray-200));
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: var(--space-6);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.toolbarSection {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.sectionTitle {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary, var(--gray-500));
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: var(--space-2);
+  white-space: nowrap;
+}
+
+.toolbarButton {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--gray-50);
+  color: var(--text-primary, var(--gray-700));
+  border: 1px solid var(--border-color, var(--gray-200));
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  position: relative;
+}
+
+.toolbarButton:hover {
+  background: var(--gray-100);
+  border-color: var(--primary-300);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.toolbarButton:active {
+  transform: translateY(0);
+}
+
+.toolbarButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.toolbarButton:disabled:hover {
+  background: var(--gray-50);
+  border-color: var(--border-color, var(--gray-200));
+  transform: none;
+  box-shadow: none;
+}
+
+.toolbarDivider {
+  width: 1px;
+  height: 24px;
+  background: var(--border-color, var(--gray-200));
+  margin: 0 var(--space-2);
+}
+
+.loadingSpinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--primary-500);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  right: var(--space-2);
+}
+
+.shortcutsModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.shortcutsContent {
+  background: var(--card-bg, white);
+  border-radius: 12px;
+  padding: var(--space-6);
+  max-width: 400px;
+  width: 90vw;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color, var(--gray-200));
+}
+
+.shortcutsTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary, var(--gray-900));
+  margin: 0 0 var(--space-4) 0;
+  text-align: center;
+}
+
+.shortcutsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.shortcutItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.shortcutKey {
+  background: var(--gray-100);
+  color: var(--text-primary, var(--gray-800));
+  padding: var(--space-1) var(--space-2);
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--border-color, var(--gray-300));
+  min-width: 80px;
+  text-align: center;
+}
+
+.shortcutDesc {
+  font-size: 14px;
+  color: var(--text-secondary, var(--gray-600));
+  flex: 1;
+}
+
+.closeButton {
+  width: 100%;
+  padding: var(--space-3);
+  background: var(--primary-500);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.closeButton:hover {
+  background: var(--primary-600);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .toolbar {
+  background: var(--card-bg, #334155);
+  border-color: var(--border-color, #475569);
+}
+
+[data-theme="dark"] .toolbarButton {
+  background: var(--gray-700, #374151);
+  color: var(--text-primary, #f8fafc);
+  border-color: var(--border-color, #475569);
+}
+
+[data-theme="dark"] .toolbarButton:hover {
+  background: var(--gray-600, #4b5563);
+  border-color: var(--primary-400);
+}
+
+[data-theme="dark"] .shortcutKey {
+  background: var(--gray-700, #374151);
+  color: var(--text-primary, #f8fafc);
+  border-color: var(--border-color, #475569);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .toolbar {
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding: var(--space-2);
+  }
+  
+  .sectionTitle {
+    display: none;
+  }
+  
+  .toolbarButton span {
+    display: none;
+  }
+  
+  .toolbarButton {
+    padding: var(--space-2);
+    min-width: 40px;
+    justify-content: center;
+  }
+  
+  .toolbarDivider {
+    display: none;
+  }
+  
+  .shortcutsContent {
+    padding: var(--space-4);
+  }
+  
+  .shortcutItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+  
+  .shortcutKey {
+    min-width: auto;
+  }
+}

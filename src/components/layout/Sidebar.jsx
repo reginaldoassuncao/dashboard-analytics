@@ -18,9 +18,9 @@ const navigation = [
   { name: 'Configurações', href: '/settings', icon: Settings },
 ]
 
-function Sidebar({ collapsed, onToggle }) {
+function Sidebar({ collapsed, onToggle, hidden }) {
   return (
-    <div className={`${styles.sidebar} ${collapsed ? styles.collapsed : ''}`}>
+    <div className={`${styles.sidebar} ${collapsed ? styles.collapsed : ''} ${hidden ? styles.hidden : ''}`}>
       <div className={styles.header}>
         <div className={styles.logo}>
           <div className={styles.logoIcon}>📊</div>
