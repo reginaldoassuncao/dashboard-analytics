@@ -21,9 +21,10 @@ export function useData(endpoint, params = {}, options = {}) {
       const result = await apiService.get(endpoint, params);
       setData(result);
       setLastFetch(Date.now());
+      setError(null); // Clear any previous errors
     } catch (err) {
       setError(err);
-      console.error(`Error fetching ${endpoint}:`, err);
+      console.warn(`Error fetching ${endpoint}:`, err.message);
     } finally {
       if (showLoading) setLoading(false);
     }
@@ -39,7 +40,12 @@ export function useData(endpoint, params = {}, options = {}) {
 
   useEffect(() => {
     if (refetchOnMount) {
-      fetchData(true);
+      // Adicionar um pequeno delay para evitar múltiplas requisições simultâneas
+      const timeout = setTimeout(() => {
+        fetchData(true);
+      }, Math.random() * 100); // 0-100ms de delay aleatório
+      
+      return () => clearTimeout(timeout);
     }
   }, [fetchData, refetchOnMount]);
 
@@ -71,27 +77,27 @@ export function useData(endpoint, params = {}, options = {}) {
   };
 }
 
-export function useKPIs(period = '30d') {
-  return useData('/api/dashboard/kpis', { period }, {
-    refetchInterval: 60000, // 1 minute
-    cacheTime: 120000 // 2 minutes
+export function useKPIs(period = '30d', dateRange = null) {
+  return useData('/api/dashboard/kpis', { period, dateRange }, {
+    refetchInterval: 30000, // 30 seconds
+    cacheTime: 60000 // 1 minute
   });
 }
 
-export function useRevenueChart(period = '12m') {
-  return useData('/api/charts/revenue', { period });
+export function useRevenueChart(period = '12m', dateRange = null) {
+  return useData('/api/charts/revenue', { period, dateRange });
 }
 
-export function useCategoryChart() {
-  return useData('/api/charts/categories');
+export function useCategoryChart(dateRange = null) {
+  return useData('/api/charts/categories', { dateRange });
 }
 
-export function useTrafficChart() {
-  return useData('/api/charts/traffic');
+export function useTrafficChart(dateRange = null) {
+  return useData('/api/charts/traffic', { dateRange });
 }
 
-export function useDailyUsers(days = 30) {
-  return useData('/api/charts/daily-users', { days });
+export function useDailyUsers(days = 30, dateRange = null) {
+  return useData('/api/charts/daily-users', { days, dateRange });
 }
 
 export function useTopProducts(limit = 10) {

@@ -1,9 +1,11 @@
 import { useMemo } from 'react';
 import Chart from '../ui/Chart';
-import { useTrafficChart } from '../../hooks/useData';
+import { useTrafficChart } from '../../hooks/useSimpleData';
+import { useSimpleDateRange } from '../../contexts/SimpleDateContext';
 import { colorSchemes } from '../../utils/chartConfig';
 
 function TrafficChart({ height = 350 }) {
+  const { getPeriodLabel } = useSimpleDateRange();
   const { data, loading, error } = useTrafficChart();
 
   const chartData = useMemo(() => {
@@ -80,7 +82,7 @@ function TrafficChart({ height = 350 }) {
       data={chartData}
       options={chartOptions}
       title="Canais de Marketing"
-      subtitle="Distribuição do tráfego por fonte de origem"
+      subtitle={`Distribuição do tráfego por origem - ${getPeriodLabel()}`}
       loading={loading}
       error={error}
       height={height}

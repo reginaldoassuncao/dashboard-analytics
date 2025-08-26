@@ -1,9 +1,12 @@
 import { useMemo } from 'react';
 import Chart from '../ui/Chart';
-import { useDailyUsers } from '../../hooks/useData';
+import { useDailyUsers } from '../../hooks/useSimpleData';
+import { useSimpleDateRange } from '../../contexts/SimpleDateContext';
 import { colors, createGradient, formatNumber } from '../../utils/chartConfig';
 
-function UsersChart({ days = 30, height = 350 }) {
+function UsersChart({ height = 350 }) {
+  const { selectedPeriod, getPeriodLabel } = useSimpleDateRange();
+  const days = selectedPeriod === '7d' ? 7 : selectedPeriod === '90d' ? 90 : selectedPeriod === '1y' ? 365 : 30;
   const { data, loading, error } = useDailyUsers(days);
 
   const chartData = useMemo(() => {
@@ -113,7 +116,7 @@ function UsersChart({ days = 30, height = 350 }) {
       data={chartData}
       options={chartOptions}
       title="Usuários Ativos Diários"
-      subtitle={`Evolução dos usuários ativos nos últimos ${days} dias`}
+      subtitle={`Evolução dos usuários ativos - ${getPeriodLabel()}`}
       loading={loading}
       error={error}
       height={height}

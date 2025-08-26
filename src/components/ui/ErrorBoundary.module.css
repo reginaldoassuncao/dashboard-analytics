@@ -1,0 +1,70 @@
+.errorBoundary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  padding: var(--space-6);
+  background: var(--gray-50);
+  border-radius: 12px;
+  border: 1px solid var(--gray-200);
+}
+
+.errorContent {
+  text-align: center;
+  max-width: 400px;
+}
+
+.errorContent h2 {
+  color: var(--danger-600);
+  font-size: 20px;
+  margin: 0 0 var(--space-3) 0;
+  font-weight: 600;
+}
+
+.errorContent p {
+  color: var(--gray-700);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 var(--space-4) 0;
+}
+
+.retryButton {
+  background: var(--primary-500);
+  color: white;
+  border: none;
+  padding: var(--space-3) var(--space-6);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.retryButton:hover {
+  background: var(--primary-600);
+}
+
+.errorDetails {
+  margin-top: var(--space-4);
+  text-align: left;
+  background: var(--gray-800);
+  color: var(--gray-100);
+  padding: var(--space-3);
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.errorDetails summary {
+  cursor: pointer;
+  font-weight: 500;
+  margin-bottom: var(--space-2);
+}
+
+.errorDetails pre {
+  white-space: pre-wrap;
+  overflow-x: auto;
+  margin: var(--space-2) 0 0 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  line-height: 1.4;
+}

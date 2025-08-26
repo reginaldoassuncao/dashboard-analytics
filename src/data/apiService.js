@@ -4,8 +4,8 @@ import { historicalData } from './historicalData.js';
 export class APIService {
   constructor() {
     this.isOnline = true;
-    this.errorRate = 0.02;
-    this.latency = { min: 200, max: 1200 };
+    this.errorRate = 0; // Desabilitar erros completamente
+    this.latency = { min: 50, max: 200 }; // Latência muito baixa
   }
 
   async simulateNetworkConditions() {

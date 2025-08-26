@@ -19,7 +19,7 @@ function ChartsGrid() {
         </div>
         
         <div className={styles.chartLarge}>
-          <UsersChart days={30} height={400} />
+          <UsersChart height={400} />
         </div>
         
         {/* Row 2 - Medium charts */}

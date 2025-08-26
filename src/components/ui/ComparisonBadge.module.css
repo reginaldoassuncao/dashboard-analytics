@@ -1,0 +1,180 @@
+.container {
+  background: linear-gradient(135deg, var(--success-50) 0%, var(--primary-50) 100%);
+  border: 1px solid var(--success-200);
+  border-radius: 12px;
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+  animation: slideInDown 0.4s ease-out;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--success-200);
+}
+
+.icon {
+  padding: var(--space-2);
+  background: var(--success-500);
+  color: white;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.title {
+  flex: 1;
+}
+
+.titleText {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-900);
+  line-height: 1.2;
+}
+
+.subtitle {
+  display: block;
+  font-size: 12px;
+  color: var(--success-700);
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 1px;
+}
+
+.metrics {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex: 1;
+  padding: var(--space-2) var(--space-3);
+  background: white;
+  border-radius: 6px;
+  border: 1px solid var(--gray-200);
+}
+
+.metricIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trendIcon.positive {
+  color: var(--success-600);
+}
+
+.trendIcon.negative {
+  color: var(--danger-600);
+}
+
+.trendIcon.neutral {
+  color: var(--gray-500);
+}
+
+.metricLabel {
+  font-size: 11px;
+  color: var(--gray-700);
+  font-weight: 500;
+  flex: 1;
+}
+
+.metricChange {
+  font-size: 11px;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.metricChange.positive {
+  color: var(--success-600);
+}
+
+.metricChange.negative {
+  color: var(--danger-600);
+}
+
+.metricChange.neutral {
+  color: var(--gray-500);
+}
+
+.periods {
+  display: flex;
+  gap: var(--space-4);
+  font-size: 11px;
+}
+
+.period {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.periodLabel {
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+.periodValue {
+  color: var(--gray-900);
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+  
+  .metrics {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  
+  .periods {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    gap: var(--space-2);
+  }
+  
+  .titleText {
+    font-size: 13px;
+  }
+  
+  .subtitle {
+    font-size: 11px;
+  }
+  
+  .metric {
+    padding: var(--space-2);
+  }
+}

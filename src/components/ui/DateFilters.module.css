@@ -1,0 +1,398 @@
+.container {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.filtersRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.quickFilters {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.quickFilter {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+  background: white;
+  color: var(--gray-700);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.quickFilter:hover:not(:disabled) {
+  border-color: var(--primary-300);
+  background: var(--primary-50);
+  color: var(--primary-700);
+}
+
+.quickFilter:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.quickFilter.active {
+  background: var(--primary-500);
+  color: white;
+  border-color: var(--primary-500);
+}
+
+.customButton .chevron {
+  transition: transform 0.2s ease;
+}
+
+.chevronUp {
+  transform: rotate(180deg);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.actionButton {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+  background: white;
+  color: var(--gray-700);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.actionButton:hover:not(:disabled) {
+  border-color: var(--gray-400);
+  background: var(--gray-50);
+}
+
+.actionButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.compareButton.active {
+  background: var(--success-500);
+  color: white;
+  border-color: var(--success-500);
+}
+
+.refreshButton {
+  padding: var(--space-2);
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+  background: white;
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.refreshButton:hover:not(:disabled) {
+  border-color: var(--gray-400);
+  background: var(--gray-50);
+  color: var(--gray-700);
+}
+
+.refreshButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+/* Custom Date Picker */
+.customPicker {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  margin-top: var(--space-3);
+  animation: slideDown 0.2s ease;
+}
+
+.pickerHeader {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.pickerHeader h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.pickerContent {
+  padding: var(--space-4);
+  display: flex;
+  gap: var(--space-4);
+  align-items: end;
+}
+
+.dateInputGroup {
+  flex: 1;
+}
+
+.dateInputGroup label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-700);
+  margin-bottom: var(--space-1);
+}
+
+.dateInput {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.dateInput:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px var(--primary-50);
+}
+
+.pickerActions {
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--gray-200);
+  display: flex;
+  gap: var(--space-2);
+  justify-content: flex-end;
+}
+
+.cancelButton,
+.applyButton {
+  padding: var(--space-2) var(--space-4);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelButton {
+  background: white;
+  border: 1px solid var(--gray-300);
+  color: var(--gray-700);
+}
+
+.cancelButton:hover {
+  background: var(--gray-50);
+  border-color: var(--gray-400);
+}
+
+.applyButton {
+  background: var(--primary-500);
+  border: 1px solid var(--primary-500);
+  color: white;
+}
+
+.applyButton:hover:not(:disabled) {
+  background: var(--primary-600);
+  border-color: var(--primary-600);
+}
+
+.applyButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Compare Options */
+.compareOptions {
+  background: var(--success-50);
+  border: 1px solid var(--success-200);
+  border-radius: 8px;
+  margin-top: var(--space-3);
+  animation: slideDown 0.2s ease;
+}
+
+.compareHeader {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--success-200);
+}
+
+.compareToggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-900);
+}
+
+.compareToggle input {
+  display: none;
+}
+
+.toggleSlider {
+  width: 32px;
+  height: 18px;
+  background: var(--gray-300);
+  border-radius: 9px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.toggleSlider::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.compareToggle input:checked + .toggleSlider {
+  background: var(--success-500);
+}
+
+.compareToggle input:checked + .toggleSlider::before {
+  transform: translateX(14px);
+}
+
+.compareContent {
+  padding: var(--space-3) var(--space-4);
+}
+
+.compareOption {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--gray-700);
+}
+
+.compareOption:last-child {
+  margin-bottom: 0;
+}
+
+.compareOption input {
+  margin: 0;
+}
+
+/* Period Info */
+.periodInfo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--gray-100);
+  font-size: 13px;
+}
+
+.currentPeriod {
+  color: var(--gray-700);
+  font-weight: 500;
+}
+
+.compareInfo {
+  color: var(--success-600);
+  font-weight: 500;
+}
+
+/* Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filtersRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+  
+  .quickFilters {
+    justify-content: flex-start;
+  }
+  
+  .actions {
+    justify-content: flex-end;
+  }
+  
+  .pickerContent {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  
+  .periodInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: var(--space-3);
+  }
+  
+  .quickFilters {
+    flex-wrap: wrap;
+  }
+  
+  .quickFilter {
+    flex: 1;
+    min-width: 70px;
+    justify-content: center;
+  }
+  
+  .pickerActions {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  
+  .cancelButton,
+  .applyButton {
+    width: 100%;
+  }
+}

@@ -1,10 +1,12 @@
 import { useMemo } from 'react';
 import Chart from '../ui/Chart';
-import { useRevenueChart } from '../../hooks/useData';
+import { useRevenueChart } from '../../hooks/useSimpleData';
+import { useSimpleDateRange } from '../../contexts/SimpleDateContext';
 import { colors, createGradient, formatCurrency } from '../../utils/chartConfig';
 
-function RevenueChart({ period = '12m', height = 350 }) {
-  const { data, loading, error } = useRevenueChart(period);
+function RevenueChart({ height = 350 }) {
+  const { selectedPeriod, getPeriodLabel } = useSimpleDateRange();
+  const { data, loading, error } = useRevenueChart(selectedPeriod);
 
   const chartData = useMemo(() => {
     if (!data) return null;
@@ -115,7 +117,7 @@ function RevenueChart({ period = '12m', height = 350 }) {
       data={chartData}
       options={chartOptions}
       title="Receita ao Longo do Tempo"
-      subtitle={`Evolução da receita nos últimos ${period === '12m' ? '12 meses' : '6 meses'}`}
+      subtitle={`Evolução da receita - ${getPeriodLabel()}`}
       loading={loading}
       error={error}
       height={height}

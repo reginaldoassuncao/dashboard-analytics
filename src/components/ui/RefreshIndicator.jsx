@@ -50,14 +50,16 @@ function RefreshIndicator({
   }, [lastUpdate]);
 
   useEffect(() => {
-    if (!autoRefresh || !isOnline) return;
+    if (!autoRefresh || !isOnline || isRefreshing) return;
 
     const timer = setInterval(() => {
-      onRefresh();
+      if (!isRefreshing) {
+        onRefresh();
+      }
     }, interval);
 
     return () => clearInterval(timer);
-  }, [autoRefresh, isOnline, interval, onRefresh]);
+  }, [autoRefresh, isOnline, interval, onRefresh, isRefreshing]);
 
   return (
     <div className={styles.indicator}>

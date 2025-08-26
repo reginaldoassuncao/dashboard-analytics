@@ -1,9 +1,11 @@
 import { useMemo } from 'react';
 import Chart from '../ui/Chart';
-import { useCategoryChart } from '../../hooks/useData';
+import { useCategoryChart } from '../../hooks/useSimpleData';
+import { useSimpleDateRange } from '../../contexts/SimpleDateContext';
 import { colorSchemes, formatNumber } from '../../utils/chartConfig';
 
 function CategoryChart({ height = 350 }) {
+  const { getPeriodLabel } = useSimpleDateRange();
   const { data, loading, error } = useCategoryChart();
 
   const chartData = useMemo(() => {
@@ -75,7 +77,7 @@ function CategoryChart({ height = 350 }) {
       data={chartData}
       options={chartOptions}
       title="Vendas por Categoria"
-      subtitle="Distribuição das vendas entre as principais categorias de produtos"
+      subtitle={`Distribuição das vendas por categoria - ${getPeriodLabel()}`}
       loading={loading}
       error={error}
       height={height}

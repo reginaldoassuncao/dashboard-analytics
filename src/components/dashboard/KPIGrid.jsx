@@ -11,10 +11,12 @@ import {
 import KPICard from '../ui/KPICard';
 import RefreshIndicator from '../ui/RefreshIndicator';
 import { useKPIs } from '../../hooks/useData';
+import { useDateRange } from '../../contexts/DateRangeContext';
 import styles from './KPIGrid.module.css';
 
 function KPIGrid() {
-  const { data: kpis, loading, error, refetch, lastFetch } = useKPIs('30d');
+  const { selectedPeriod, getDateRange, isLoading: filtersLoading } = useDateRange();
+  const { data: kpis, loading, error, refetch, lastFetch } = useKPIs(selectedPeriod, getDateRange());
 
   const kpiCards = [
     {
@@ -113,10 +115,10 @@ function KPIGrid() {
           <p className={styles.subtitle}>Resumo do desempenho dos últimos 30 dias</p>
         </div>
         <RefreshIndicator 
-          isRefreshing={loading}
+          isRefreshing={loading || filtersLoading}
           lastUpdate={lastFetch}
           onRefresh={refetch}
-          autoRefresh={true}
+          autoRefresh={false}
           interval={60000}
         />
       </div>
@@ -133,7 +135,7 @@ function KPIGrid() {
             prefix={card.prefix}
             suffix={card.suffix}
             decimals={card.decimals}
-            loading={loading}
+            loading={loading || filtersLoading}
             className={`${styles.card} ${styles[`card${index + 1}`]}`}
           />
         ))}
