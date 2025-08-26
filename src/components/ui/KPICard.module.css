@@ -1,0 +1,206 @@
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: var(--space-6);
+  border: 1px solid var(--gray-200);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary-500);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-200);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-4);
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-600);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.iconContainer {
+  padding: var(--space-2);
+  background: var(--primary-50);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon {
+  color: var(--primary-600);
+}
+
+.content {
+  margin-bottom: var(--space-4);
+}
+
+.value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gray-900);
+  line-height: 1.2;
+  margin-bottom: var(--space-2);
+  transition: all 0.3s ease;
+}
+
+.value.animating {
+  color: var(--primary-600);
+}
+
+.change {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.trendIcon {
+  display: flex;
+  align-items: center;
+}
+
+.changeValue {
+  font-weight: 600;
+}
+
+.changeLabel {
+  color: var(--gray-500);
+  font-weight: 400;
+}
+
+.trendUp {
+  color: var(--success-500);
+}
+
+.trendDown {
+  color: var(--danger-500);
+}
+
+.trendNeutral {
+  color: var(--gray-500);
+}
+
+.sparkline {
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--primary-500) 50%, transparent 100%);
+  border-radius: 1px;
+  opacity: 0.3;
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.6; }
+}
+
+/* Loading States */
+.loading {
+  pointer-events: none;
+}
+
+.titleSkeleton,
+.iconSkeleton,
+.valueSkeleton,
+.changeSkeleton {
+  background: linear-gradient(90deg, var(--gray-200) 25%, var(--gray-100) 50%, var(--gray-200) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+.titleSkeleton {
+  height: 16px;
+  width: 120px;
+}
+
+.iconSkeleton {
+  height: 40px;
+  width: 40px;
+  border-radius: 8px;
+}
+
+.valueSkeleton {
+  height: 32px;
+  width: 150px;
+  margin-bottom: var(--space-2);
+}
+
+.changeSkeleton {
+  height: 14px;
+  width: 100px;
+}
+
+@keyframes loading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    padding: var(--space-4);
+  }
+  
+  .value {
+    font-size: 24px;
+  }
+  
+  .header {
+    margin-bottom: var(--space-3);
+  }
+  
+  .content {
+    margin-bottom: var(--space-3);
+  }
+}
+
+@media (max-width: 480px) {
+  .value {
+    font-size: 20px;
+  }
+  
+  .change {
+    flex-wrap: wrap;
+    gap: var(--space-1);
+  }
+  
+  .changeLabel {
+    width: 100%;
+    margin-top: 2px;
+  }
+}

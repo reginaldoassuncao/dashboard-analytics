@@ -1,0 +1,91 @@
+.indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-2) var(--space-3);
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--gray-600);
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.statusIcon {
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.statusIcon.online {
+  color: var(--success-500);
+  background: var(--success-50);
+}
+
+.statusIcon.offline {
+  color: var(--danger-500);
+  background: var(--danger-50);
+}
+
+.statusText {
+  font-weight: 500;
+}
+
+.lastUpdate {
+  font-weight: 400;
+  color: var(--gray-500);
+}
+
+.refreshButton {
+  background: none;
+  border: none;
+  padding: var(--space-1);
+  border-radius: 4px;
+  color: var(--gray-500);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.refreshButton:hover:not(:disabled) {
+  background: var(--gray-200);
+  color: var(--gray-700);
+}
+
+.refreshButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refreshButton.refreshing {
+  animation: spin 1s linear infinite;
+  color: var(--primary-500);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 480px) {
+  .indicator {
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-2);
+  }
+  
+  .statusText {
+    display: none;
+  }
+  
+  .lastUpdate {
+    font-size: 11px;
+  }
+}

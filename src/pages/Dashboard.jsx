@@ -1,4 +1,5 @@
 import KPIGrid from '../components/dashboard/KPIGrid';
+import QuickStats from '../components/ui/QuickStats';
 import styles from './Dashboard.module.css';
 
 function Dashboard() {
@@ -12,6 +13,7 @@ function Dashboard() {
       </div>
       
       <KPIGrid />
+      <QuickStats />
     </div>
   )
 }
