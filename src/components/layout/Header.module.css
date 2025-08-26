@@ -1,0 +1,212 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-6);
+  height: 80px;
+  background-color: white;
+  border-bottom: 1px solid var(--gray-200);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.menuButton {
+  display: none;
+  background: none;
+  border: none;
+  padding: var(--space-2);
+  border-radius: 6px;
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.menuButton:hover {
+  background-color: var(--gray-100);
+  color: var(--gray-900);
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 14px;
+}
+
+.breadcrumbHome {
+  color: var(--gray-500);
+}
+
+.breadcrumbSeparator {
+  color: var(--gray-400);
+}
+
+.breadcrumbCurrent {
+  color: var(--gray-900);
+  font-weight: 500;
+}
+
+.center {
+  flex: 1;
+  max-width: 400px;
+  margin: 0 var(--space-8);
+}
+
+.searchBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: var(--space-3);
+  color: var(--gray-400);
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: var(--space-2) var(--space-3) var(--space-2) 40px;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px var(--primary-50);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.notificationButton {
+  position: relative;
+  background: none;
+  border: none;
+  padding: var(--space-2);
+  border-radius: 6px;
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.notificationButton:hover {
+  background-color: var(--gray-100);
+  color: var(--gray-900);
+}
+
+.notificationBadge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background-color: var(--danger-500);
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.userMenu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.userMenu:hover {
+  background-color: var(--gray-50);
+}
+
+.userAvatar {
+  width: 32px;
+  height: 32px;
+  background-color: var(--primary-100);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-900);
+  line-height: 1.2;
+}
+
+.userRole {
+  font-size: 12px;
+  color: var(--gray-500);
+  line-height: 1.2;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 var(--space-4);
+  }
+  
+  .menuButton {
+    display: flex;
+  }
+  
+  .center {
+    display: none;
+  }
+  
+  .breadcrumbs {
+    display: none;
+  }
+  
+  .userInfo {
+    display: none;
+  }
+  
+  .right {
+    gap: var(--space-2);
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0 var(--space-3);
+  }
+  
+  .left {
+    gap: var(--space-2);
+  }
+  
+  .right {
+    gap: var(--space-1);
+  }
+}
