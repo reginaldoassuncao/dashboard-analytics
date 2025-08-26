@@ -4,6 +4,9 @@
   padding: var(--space-6);
   border: 1px solid var(--gray-200);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  min-width: 0;
+  container-type: inline-size;
 }
 
 .header {
@@ -159,7 +162,39 @@
   color: var(--gray-900);
 }
 
-/* Responsive */
+/* Enhanced Responsive Design */
+@media (max-width: 1200px) {
+  .funnel {
+    padding: var(--space-5);
+  }
+  
+  .bar {
+    height: 55px;
+  }
+  
+  .summary {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 1000px) {
+  .funnel {
+    padding: var(--space-4);
+  }
+  
+  .bar {
+    height: 52px;
+  }
+  
+  .stageName {
+    font-size: 13px;
+  }
+  
+  .stageValue {
+    font-size: 15px;
+  }
+}
+
 @media (max-width: 768px) {
   .funnel {
     padding: var(--space-4);
@@ -195,7 +230,37 @@
   }
 }
 
+@media (max-width: 600px) {
+  .funnel {
+    padding: var(--space-3);
+  }
+  
+  .bar {
+    height: 45px;
+  }
+  
+  .barContent {
+    padding: 0 var(--space-2);
+  }
+  
+  .stageName {
+    font-size: 11px;
+  }
+  
+  .stageValue {
+    font-size: 13px;
+  }
+  
+  .dropoffLabel {
+    font-size: 11px;
+  }
+}
+
 @media (max-width: 480px) {
+  .bar {
+    height: 42px;
+  }
+  
   .stageInfo {
     flex-direction: column;
     align-items: flex-start;
@@ -211,6 +276,59 @@
   }
   
   .dropoffLabel {
+    font-size: 10px;
+  }
+  
+  .stageName {
+    font-size: 10px;
+  }
+  
+  .stageValue {
+    font-size: 12px;
+  }
+}
+
+/* Container queries for zoom support */
+@container (max-width: 600px) {
+  .funnel {
+    padding: var(--space-3);
+  }
+  
+  .bar {
+    height: 45px;
+  }
+  
+  .stageName {
     font-size: 11px;
+  }
+  
+  .stageValue {
+    font-size: 13px;
+  }
+}
+
+@container (max-width: 400px) {
+  .funnel {
+    padding: var(--space-2);
+  }
+  
+  .bar {
+    height: 40px;
+  }
+  
+  .barContent {
+    padding: 0 var(--space-2);
+  }
+  
+  .stageName {
+    font-size: 10px;
+  }
+  
+  .stageValue {
+    font-size: 11px;
+  }
+  
+  .summary {
+    gap: var(--space-2);
   }
 }

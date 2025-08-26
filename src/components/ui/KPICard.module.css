@@ -6,6 +6,9 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .card::before {
@@ -170,14 +173,34 @@
   }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* Enhanced Responsive Design */
+@media (max-width: 1200px) {
+  .card {
+    padding: var(--space-5);
+  }
+  
+  .value {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 1000px) {
   .card {
     padding: var(--space-4);
   }
   
   .value {
     font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: var(--space-4);
+  }
+  
+  .value {
+    font-size: 22px;
   }
   
   .header {
@@ -187,20 +210,84 @@
   .content {
     margin-bottom: var(--space-3);
   }
+  
+  .title {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: var(--space-3);
+  }
+  
+  .value {
+    font-size: 20px;
+  }
+  
+  .iconContainer {
+    padding: var(--space-1);
+  }
 }
 
 @media (max-width: 480px) {
+  .card {
+    padding: var(--space-3);
+  }
+  
   .value {
-    font-size: 20px;
+    font-size: 18px;
   }
   
   .change {
     flex-wrap: wrap;
     gap: var(--space-1);
+    font-size: 12px;
   }
   
   .changeLabel {
     width: 100%;
     margin-top: 2px;
+  }
+  
+  .title {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .card {
+    padding: var(--space-2);
+  }
+  
+  .value {
+    font-size: 16px;
+  }
+  
+  .header {
+    margin-bottom: var(--space-2);
+  }
+  
+  .content {
+    margin-bottom: var(--space-2);
+  }
+}
+
+/* Container queries for zoom support */
+@container (max-width: 250px) {
+  .card {
+    padding: var(--space-3);
+  }
+  
+  .value {
+    font-size: 18px;
+  }
+  
+  .title {
+    font-size: 12px;
+  }
+  
+  .change {
+    font-size: 11px;
   }
 }

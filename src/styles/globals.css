@@ -160,6 +160,93 @@ html {
   }
 }
 
+/* Enhanced zoom and small screen handling */
+@media (max-width: 1400px) {
+  :root {
+    --space-1: 3px;
+    --space-2: 6px;
+    --space-3: 10px;
+    --space-4: 14px;
+    --space-6: 20px;
+    --space-8: 28px;
+  }
+}
+
+@media (max-width: 1000px) {
+  :root {
+    --space-1: 3px;
+    --space-2: 6px;
+    --space-3: 9px;
+    --space-4: 12px;
+    --space-6: 18px;
+    --space-8: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --space-1: 2px;
+    --space-2: 4px;
+    --space-3: 8px;
+    --space-4: 12px;
+    --space-6: 16px;
+    --space-8: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --space-1: 2px;
+    --space-2: 4px;
+    --space-3: 6px;
+    --space-4: 8px;
+    --space-6: 12px;
+    --space-8: 16px;
+  }
+}
+
+/* Utilities for responsive design */
+.text-responsive {
+  font-size: clamp(0.75rem, 2.5vw, 1rem);
+}
+
+.heading-responsive {
+  font-size: clamp(1rem, 4vw, 2rem);
+}
+
+.container-fluid {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.flex-wrap-responsive {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+@media (max-width: 768px) {
+  .flex-wrap-responsive {
+    flex-direction: column;
+  }
+}
+
+/* Improved focus styles for accessibility */
+*:focus {
+  outline: 2px solid var(--primary-500);
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--primary-500);
+  outline-offset: 2px;
+}
+
 .mono {
   font-family: 'JetBrains Mono', 'Monaco', 'Consolas', monospace;
 }

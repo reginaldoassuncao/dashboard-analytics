@@ -32,29 +32,36 @@
 
 .topRow {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
   gap: var(--space-6);
+  width: 100%;
 }
 
 .heatmapSection,
 .funnelSection {
   min-height: 400px;
+  width: 100%;
+  min-width: 0;
 }
 
 .middleRow {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
 }
 
 .bottomRow {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(min(450px, 100%), 1fr));
   gap: var(--space-6);
+  width: 100%;
 }
 
 .geoSection,
 .cohortSection {
   min-height: 500px;
+  width: 100%;
+  min-width: 0;
 }
 
 .quickFilters {
@@ -107,8 +114,9 @@
 
 .analysisTypes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: var(--space-4);
+  width: 100%;
 }
 
 .analysisType {
@@ -138,16 +146,40 @@
   }
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .topRow,
+/* Enhanced Responsive Design */
+@media (max-width: 1400px) {
+  .topRow {
+    grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
+    gap: var(--space-5);
+  }
+  
   .bottomRow {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(min(430px, 100%), 1fr));
+    gap: var(--space-5);
+  }
+}
+
+@media (max-width: 1200px) {
+  .topRow {
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+    gap: var(--space-4);
+  }
+  
+  .bottomRow {
+    grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
     gap: var(--space-4);
   }
   
   .content {
     gap: var(--space-6);
+  }
+}
+
+@media (max-width: 1000px) {
+  .topRow,
+  .bottomRow {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
   }
   
   .heatmapSection,
@@ -176,6 +208,13 @@
     gap: var(--space-4);
   }
   
+  .heatmapSection,
+  .funnelSection,
+  .geoSection,
+  .cohortSection {
+    min-height: 320px;
+  }
+  
   .filterButtons {
     gap: var(--space-2);
   }
@@ -200,6 +239,24 @@
   }
 }
 
+@media (max-width: 600px) {
+  .heatmapSection,
+  .funnelSection,
+  .geoSection,
+  .cohortSection {
+    min-height: 300px;
+  }
+  
+  .filterButtons {
+    gap: var(--space-1);
+  }
+  
+  .filterButton {
+    padding: var(--space-1) var(--space-2);
+    font-size: 12px;
+  }
+}
+
 @media (max-width: 480px) {
   .header {
     margin-bottom: var(--space-4);
@@ -221,17 +278,19 @@
   .funnelSection,
   .geoSection,
   .cohortSection {
-    min-height: 300px;
+    min-height: 280px;
   }
   
   .filterButtons {
     flex-direction: column;
     align-items: stretch;
+    gap: var(--space-2);
   }
   
   .filterButton {
     justify-content: center;
     text-align: center;
+    padding: var(--space-2);
   }
   
   .quickFilters {
@@ -241,5 +300,58 @@
   .filtersTitle {
     font-size: 16px;
     text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .header {
+    margin-bottom: var(--space-3);
+  }
+  
+  .title {
+    font-size: 22px;
+  }
+  
+  .content {
+    gap: var(--space-2);
+  }
+  
+  .heatmapSection,
+  .funnelSection,
+  .geoSection,
+  .cohortSection {
+    min-height: 260px;
+  }
+}
+
+/* Container queries for zoom support */
+@container (max-width: 1000px) {
+  .topRow,
+  .bottomRow {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
+@container (max-width: 700px) {
+  .content {
+    gap: var(--space-3);
+  }
+  
+  .heatmapSection,
+  .funnelSection,
+  .geoSection,
+  .cohortSection {
+    min-height: 300px;
+  }
+}
+
+@container (max-width: 500px) {
+  .filterButtons {
+    flex-direction: column;
+  }
+  
+  .analysisTypes {
+    grid-template-columns: 1fr;
   }
 }

@@ -5,6 +5,9 @@
       "Bash(npm install)",
       "Bash(npm run dev:*)",
       "Bash(del srccomponentsDataTest.jsx)",
+      "Read(/C:\\Users\\regia\\Pictures\\Screenshots/**)",
+      "Read(/C:\\Users\\regia\\Pictures\\Screenshots/**)",
+      "Read(/C:\\Users\\regia\\Pictures\\Screenshots/**)",
       "Read(/C:\\Users\\regia\\Pictures\\Screenshots/**)"
     ],
     "deny": [],

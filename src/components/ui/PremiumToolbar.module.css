@@ -197,12 +197,50 @@
   border-color: var(--border-color, #475569);
 }
 
-/* Responsive */
+/* Enhanced Responsive Design */
+@media (max-width: 1200px) {
+  .toolbar {
+    gap: var(--space-3);
+    padding: var(--space-3);
+  }
+  
+  .toolbarButton {
+    padding: var(--space-2) var(--space-3);
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .toolbar {
+    gap: var(--space-2);
+  }
+  
+  .sectionTitle {
+    font-size: 10px;
+  }
+  
+  .toolbarButton {
+    gap: var(--space-1);
+  }
+}
+
+@media (max-width: 850px) {
+  .toolbar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .toolbarSection {
+    gap: var(--space-1);
+  }
+}
+
 @media (max-width: 768px) {
   .toolbar {
     flex-wrap: wrap;
     gap: var(--space-2);
     padding: var(--space-2);
+    justify-content: space-between;
   }
   
   .sectionTitle {
@@ -215,16 +253,46 @@
   
   .toolbarButton {
     padding: var(--space-2);
-    min-width: 40px;
+    min-width: 44px;
     justify-content: center;
+    flex: 0 0 auto;
   }
   
   .toolbarDivider {
     display: none;
   }
   
+  .toolbarSection {
+    gap: var(--space-1);
+  }
+}
+
+@media (max-width: 600px) {
+  .toolbar {
+    gap: var(--space-1);
+    padding: var(--space-1);
+  }
+  
+  .toolbarButton {
+    min-width: 40px;
+    padding: var(--space-1);
+  }
+}
+
+@media (max-width: 480px) {
+  .toolbar {
+    justify-content: center;
+    gap: var(--space-1);
+  }
+  
+  .toolbarSection {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
   .shortcutsContent {
     padding: var(--space-4);
+    margin: var(--space-2);
   }
   
   .shortcutItem {
@@ -235,5 +303,49 @@
   
   .shortcutKey {
     min-width: auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .toolbar {
+    padding: var(--space-1);
+  }
+  
+  .toolbarButton {
+    min-width: 36px;
+    padding: 6px;
+  }
+}
+
+/* Container queries for zoom support */
+@container (max-width: 800px) {
+  .toolbar {
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  
+  .sectionTitle {
+    display: none;
+  }
+  
+  .toolbarButton span {
+    display: none;
+  }
+}
+
+@container (max-width: 600px) {
+  .toolbar {
+    justify-content: center;
+  }
+  
+  .toolbarDivider {
+    display: none;
+  }
+}
+
+@container (max-width: 400px) {
+  .toolbarButton {
+    min-width: 36px;
+    padding: var(--space-1);
   }
 }

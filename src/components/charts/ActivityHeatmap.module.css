@@ -4,6 +4,9 @@
   padding: var(--space-6);
   border: 1px solid var(--gray-200);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  min-width: 0;
+  container-type: inline-size;
 }
 
 .header {
@@ -143,7 +146,37 @@
   height: 12px;
 }
 
-/* Responsive */
+/* Enhanced Responsive Design */
+@media (max-width: 1200px) {
+  .heatmap {
+    padding: var(--space-5);
+  }
+  
+  .cell {
+    width: 36px;
+    height: 22px;
+  }
+  
+  .xLabel {
+    min-width: 36px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .heatmap {
+    padding: var(--space-4);
+  }
+  
+  .cell {
+    width: 34px;
+    height: 21px;
+  }
+  
+  .xLabel {
+    min-width: 34px;
+  }
+}
+
 @media (max-width: 768px) {
   .heatmap {
     padding: var(--space-4);
@@ -164,5 +197,82 @@
   
   .xLabel {
     min-width: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .heatmap {
+    padding: var(--space-3);
+  }
+  
+  .cell {
+    width: 28px;
+    height: 18px;
+  }
+  
+  .xLabel {
+    min-width: 28px;
+    font-size: 11px;
+  }
+  
+  .yLabel {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    min-width: 280px;
+  }
+  
+  .cell {
+    width: 26px;
+    height: 16px;
+  }
+  
+  .xLabel {
+    min-width: 26px;
+    font-size: 10px;
+  }
+  
+  .yLabel {
+    font-size: 10px;
+  }
+}
+
+/* Container queries for zoom support */
+@container (max-width: 600px) {
+  .heatmap {
+    padding: var(--space-3);
+  }
+  
+  .cell {
+    width: 28px;
+    height: 18px;
+  }
+  
+  .xLabel {
+    min-width: 28px;
+    font-size: 11px;
+  }
+}
+
+@container (max-width: 400px) {
+  .heatmap {
+    padding: var(--space-2);
+  }
+  
+  .cell {
+    width: 24px;
+    height: 15px;
+  }
+  
+  .xLabel {
+    min-width: 24px;
+    font-size: 10px;
+  }
+  
+  .yLabel {
+    font-size: 10px;
   }
 }

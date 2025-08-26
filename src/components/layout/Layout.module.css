@@ -39,6 +39,22 @@
   overflow-y: auto;
   background-color: var(--content-bg, var(--gray-50));
   transition: all 0.3s ease;
+  container-type: inline-size;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Enhanced responsive breakpoints */
+@media (max-width: 1200px) {
+  .content {
+    padding: var(--space-5);
+  }
+}
+
+@media (max-width: 1000px) {
+  .content {
+    padding: var(--space-4);
+  }
 }
 
 @media (max-width: 768px) {
@@ -52,5 +68,38 @@
   
   .content {
     padding: var(--space-4);
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    padding: var(--space-3);
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: var(--space-2);
+  }
+}
+
+/* Handle zoom scenarios */
+@media (max-width: 400px) {
+  .content {
+    padding: var(--space-2);
+    font-size: 14px;
+  }
+}
+
+/* Container queries for better zoom support */
+@container (max-width: 800px) {
+  .content {
+    padding: var(--space-3);
+  }
+}
+
+@container (max-width: 500px) {
+  .content {
+    padding: var(--space-2);
   }
 }

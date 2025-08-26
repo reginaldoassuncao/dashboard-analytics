@@ -21,11 +21,9 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
   gap: var(--space-6);
-  grid-template-areas: 
-    "revenue users"
-    "category traffic";
+  width: 100%;
 }
 
 .chartLarge {
@@ -73,9 +71,24 @@
   }
 }
 
-/* Responsive Design */
+/* Enhanced Responsive Design */
+@media (max-width: 1400px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
+    gap: var(--space-5);
+  }
+}
+
 @media (max-width: 1200px) {
   .grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
     gap: var(--space-4);
   }
 }
@@ -96,11 +109,13 @@
   .grid {
     grid-template-columns: 1fr;
     gap: var(--space-4);
-    grid-template-areas: 
-      "revenue"
-      "users"
-      "category"
-      "traffic";
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-3);
   }
 }
 
@@ -121,6 +136,20 @@
     font-size: 13px;
   }
   
+  .grid {
+    gap: var(--space-3);
+  }
+}
+
+/* Container queries for better zoom handling */
+@container (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
+@container (max-width: 600px) {
   .grid {
     gap: var(--space-3);
   }

@@ -4,6 +4,9 @@
   padding: var(--space-6);
   border: 1px solid var(--gray-200);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  min-width: 0;
+  container-type: inline-size;
 }
 
 .header {
@@ -251,7 +254,33 @@
   border-radius: 3px;
 }
 
-/* Responsive */
+/* Enhanced Responsive Design */
+@media (max-width: 1200px) {
+  .cohortAnalysis {
+    padding: var(--space-5);
+  }
+  
+  .cohortTable {
+    font-size: 12px;
+    min-width: 550px;
+  }
+  
+  .insights {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 1000px) {
+  .cohortAnalysis {
+    padding: var(--space-4);
+  }
+  
+  .cohortTable {
+    font-size: 11px;
+    min-width: 520px;
+  }
+}
+
 @media (max-width: 768px) {
   .cohortAnalysis {
     padding: var(--space-4);
@@ -291,6 +320,26 @@
   }
 }
 
+@media (max-width: 600px) {
+  .cohortAnalysis {
+    padding: var(--space-3);
+  }
+  
+  .cohortTable {
+    font-size: 10px;
+    min-width: 450px;
+  }
+  
+  .cohortTable th,
+  .cohortTable td {
+    padding: var(--space-1);
+  }
+  
+  .insightValue {
+    font-size: 18px;
+  }
+}
+
 @media (max-width: 480px) {
   .cohortTable {
     font-size: 10px;
@@ -308,7 +357,7 @@
   }
   
   .insightValue {
-    font-size: 18px;
+    font-size: 16px;
   }
   
   .retentionValue {
@@ -317,5 +366,42 @@
   
   .userCount {
     font-size: 8px;
+  }
+}
+
+/* Container queries for zoom support */
+@container (max-width: 700px) {
+  .cohortAnalysis {
+    padding: var(--space-3);
+  }
+  
+  .cohortTable {
+    font-size: 10px;
+    min-width: 450px;
+  }
+  
+  .insights {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@container (max-width: 500px) {
+  .cohortAnalysis {
+    padding: var(--space-2);
+  }
+  
+  .insights {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+  
+  .insightValue {
+    font-size: 16px;
+  }
+}
+
+@container (max-width: 400px) {
+  .cohortTable {
+    min-width: 350px;
   }
 }
