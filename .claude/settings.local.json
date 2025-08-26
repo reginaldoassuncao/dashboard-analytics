@@ -4,7 +4,8 @@
       "Bash(npm create:*)",
       "Bash(npm install)",
       "Bash(npm run dev:*)",
-      "Bash(del srccomponentsDataTest.jsx)"
+      "Bash(del srccomponentsDataTest.jsx)",
+      "Read(/C:\\Users\\regia\\Pictures\\Screenshots/**)"
     ],
     "deny": [],
     "ask": []

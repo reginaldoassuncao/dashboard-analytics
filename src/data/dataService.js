@@ -238,6 +238,138 @@ export class DataService {
     return recentUsers;
   }
 
+  async getActivityHeatmap(period = '7d') {
+    const cacheKey = `activity-heatmap-${period}`;
+    const cached = this.getFromCache(cacheKey);
+    if (cached) return cached;
+
+    await this.simulateApiDelay();
+
+    const days = period === '7d' ? 7 : period === '30d' ? 30 : 7;
+    const hours = 24;
+    
+    const heatmapData = [];
+    for (let day = 0; day < days; day++) {
+      for (let hour = 0; hour < hours; hour++) {
+        const baseActivity = Math.sin((hour - 12) * Math.PI / 12) * 0.5 + 0.5;
+        const weekdayMultiplier = (day % 7 < 5) ? 1.2 : 0.7; // Weekdays vs weekends
+        const noise = this.generator.randomFloat(0.7, 1.3);
+        const activity = Math.max(0, baseActivity * weekdayMultiplier * noise);
+        
+        heatmapData.push({
+          day: day,
+          hour: hour,
+          activity: Math.round(activity * 100),
+          date: DateUtils.subtractDays(new Date(), days - day - 1),
+          dayName: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'][day % 7]
+        });
+      }
+    }
+
+    this.setCache(cacheKey, heatmapData);
+    return heatmapData;
+  }
+
+  async getConversionFunnel() {
+    const cacheKey = 'conversion-funnel';
+    const cached = this.getFromCache(cacheKey);
+    if (cached) return cached;
+
+    await this.simulateApiDelay();
+
+    const funnelData = [
+      { stage: 'Visitantes', value: 10000, percentage: 100, color: '#3b82f6' },
+      { stage: 'Visualizações de Produto', value: 4500, percentage: 45, color: '#06b6d4' },
+      { stage: 'Adicionaram ao Carrinho', value: 1800, percentage: 18, color: '#10b981' },
+      { stage: 'Iniciaram Checkout', value: 900, percentage: 9, color: '#f59e0b' },
+      { stage: 'Concluíram Compra', value: 320, percentage: 3.2, color: '#22c55e' }
+    ];
+
+    this.setCache(cacheKey, funnelData);
+    return funnelData;
+  }
+
+  async getCorrelationData() {
+    const cacheKey = 'correlation-data';
+    const cached = this.getFromCache(cacheKey);
+    if (cached) return cached;
+
+    await this.simulateApiDelay();
+
+    const correlationData = Array.from({ length: 50 }, () => ({
+      advertising: this.generator.randomFloat(1000, 10000),
+      sales: this.generator.randomFloat(5000, 50000),
+      sessions: this.generator.randomFloat(100, 1000),
+      date: DateUtils.subtractDays(new Date(), this.generator.randomInt(0, 365))
+    })).map(item => ({
+      ...item,
+      sales: item.advertising * this.generator.randomFloat(3, 7) + this.generator.randomFloat(-5000, 5000)
+    }));
+
+    this.setCache(cacheKey, correlationData);
+    return correlationData;
+  }
+
+  async getGeographicData() {
+    const cacheKey = 'geographic-data';
+    const cached = this.getFromCache(cacheKey);
+    if (cached) return cached;
+
+    await this.simulateApiDelay();
+
+    const states = [
+      { name: 'São Paulo', code: 'SP', sales: 2847392, users: 12543, color: '#dc2626' },
+      { name: 'Rio de Janeiro', code: 'RJ', sales: 1456789, users: 8932, color: '#ea580c' },
+      { name: 'Minas Gerais', code: 'MG', sales: 987654, users: 6543, color: '#d97706' },
+      { name: 'Rio Grande do Sul', code: 'RS', sales: 765432, users: 4987, color: '#ca8a04' },
+      { name: 'Paraná', code: 'PR', sales: 654321, users: 3654, color: '#65a30d' },
+      { name: 'Santa Catarina', code: 'SC', sales: 543210, users: 2987, color: '#16a34a' },
+      { name: 'Bahia', code: 'BA', sales: 432109, users: 2543, color: '#059669' },
+      { name: 'Goiás', code: 'GO', sales: 321098, users: 1987, color: '#0d9488' },
+      { name: 'Pernambuco', code: 'PE', sales: 210987, users: 1543, color: '#0891b2' },
+      { name: 'Ceará', code: 'CE', sales: 198765, users: 1234, color: '#0284c7' }
+    ];
+
+    this.setCache(cacheKey, states);
+    return states;
+  }
+
+  async getCohortAnalysis() {
+    const cacheKey = 'cohort-analysis';
+    const cached = this.getFromCache(cacheKey);
+    if (cached) return cached;
+
+    await this.simulateApiDelay();
+
+    const cohortData = [];
+    const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'];
+    
+    months.forEach((month, monthIndex) => {
+      const cohortMonth = {
+        cohort: month,
+        size: 1000 - monthIndex * 50,
+        data: []
+      };
+      
+      for (let period = 0; period <= 5 - monthIndex; period++) {
+        const retention = Math.max(
+          0.1, 
+          1 - (period * 0.15) - (monthIndex * 0.02) + this.generator.randomFloat(-0.1, 0.1)
+        );
+        cohortMonth.data.push({
+          period,
+          retention: Math.round(retention * 100),
+          users: Math.round(cohortMonth.size * retention)
+        });
+      }
+      
+      cohortData.push(cohortMonth);
+    });
+
+    this.setCache(cacheKey, cohortData);
+    return cohortData;
+  }
+
   async getAnalyticsData() {
     const cacheKey = 'analytics-data';
     const cached = this.getFromCache(cacheKey);

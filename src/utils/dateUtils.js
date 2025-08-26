@@ -106,4 +106,28 @@ export class DateUtils {
     };
     return multipliers[day] || 1.0;
   }
+
+  static subtractDays(date, days) {
+    const result = new Date(date);
+    result.setDate(result.getDate() - days);
+    return result;
+  }
+
+  static addDays(date, days) {
+    const result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  }
+
+  static subtractMonths(date, months) {
+    const result = new Date(date);
+    result.setMonth(result.getMonth() - months);
+    return result;
+  }
+
+  static addMonths(date, months) {
+    const result = new Date(date);
+    result.setMonth(result.getMonth() + months);
+    return result;
+  }
 }

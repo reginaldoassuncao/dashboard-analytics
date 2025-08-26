@@ -1,0 +1,216 @@
+.funnel {
+  background: white;
+  border-radius: 12px;
+  padding: var(--space-6);
+  border: 1px solid var(--gray-200);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  margin-bottom: var(--space-6);
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 var(--space-1) 0;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--gray-600);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.dropoff {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-left: var(--space-4);
+}
+
+.dropoffLine {
+  width: 2px;
+  height: 16px;
+  background: var(--danger-300);
+  border-radius: 1px;
+}
+
+.dropoffLabel {
+  font-size: 12px;
+  color: var(--danger-600);
+  font-weight: 500;
+}
+
+.bar {
+  display: flex;
+  height: 60px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--gray-200);
+  background: var(--gray-50);
+  transition: all 0.3s ease;
+}
+
+.bar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.barFill {
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: width 0.8s ease-out;
+  min-width: 120px;
+}
+
+.barContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-4);
+}
+
+.stageInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.stageName {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.stageMetrics {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.stageValue {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.stagePercentage {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.barEmpty {
+  background: var(--gray-100);
+  transition: width 0.8s ease-out;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--gray-200);
+}
+
+.summaryCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  background: var(--gray-50);
+  border-radius: 8px;
+  border: 1px solid var(--gray-200);
+}
+
+.summaryLabel {
+  font-size: 12px;
+  color: var(--gray-600);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.summaryValue {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .funnel {
+    padding: var(--space-4);
+  }
+  
+  .bar {
+    height: 50px;
+  }
+  
+  .barContent {
+    padding: 0 var(--space-3);
+  }
+  
+  .stageName {
+    font-size: 12px;
+  }
+  
+  .stageValue {
+    font-size: 14px;
+  }
+  
+  .summary {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  
+  .summaryCard {
+    padding: var(--space-3);
+  }
+  
+  .summaryValue {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stageInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+  
+  .stageMetrics {
+    align-items: flex-start;
+  }
+  
+  .dropoff {
+    padding-left: var(--space-2);
+  }
+  
+  .dropoffLabel {
+    font-size: 11px;
+  }
+}

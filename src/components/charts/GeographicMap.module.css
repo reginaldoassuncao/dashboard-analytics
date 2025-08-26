@@ -1,0 +1,329 @@
+.geoMap {
+  background: white;
+  border-radius: 12px;
+  padding: var(--space-6);
+  border: 1px solid var(--gray-200);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  margin-bottom: var(--space-6);
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 var(--space-1) 0;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--gray-600);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.mapContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.mapTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-800);
+  text-align: center;
+}
+
+.mapGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--gray-50);
+  border-radius: 8px;
+  border: 1px solid var(--gray-200);
+  min-height: 200px;
+}
+
+.stateNode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  margin: auto;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stateNode:hover {
+  transform: scale(1.1);
+  z-index: 10;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.stateCode {
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.stateSales {
+  font-size: 9px;
+  font-weight: 500;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  margin-top: 2px;
+}
+
+.mapLegend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-size: 12px;
+  color: var(--gray-600);
+}
+
+.legendBar {
+  display: flex;
+  gap: 1px;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--gray-300);
+}
+
+.legendStep {
+  width: 16px;
+  height: 12px;
+}
+
+.ranking {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.rankingTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin: 0;
+}
+
+.rankingList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.rankingItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: var(--gray-50);
+  border-radius: 8px;
+  border: 1px solid var(--gray-200);
+  transition: all 0.2s ease;
+}
+
+.rankingItem:hover {
+  background: var(--gray-100);
+  transform: translateX(4px);
+}
+
+.rankingPosition {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gray-500);
+  min-width: 24px;
+  text-align: center;
+}
+
+.stateInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.stateName {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.stateFullName {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.stateCodeSmall {
+  font-size: 12px;
+  color: var(--gray-500);
+}
+
+.stateMetrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metricLabel {
+  font-size: 10px;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metricValue {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.metricPercentage {
+  font-size: 10px;
+  color: var(--gray-600);
+}
+
+.progressBars {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 60px;
+}
+
+.progressBar {
+  height: 4px;
+  background: var(--gray-200);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  transition: width 0.8s ease-out;
+  border-radius: 2px;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-4);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--gray-200);
+}
+
+.summaryCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  background: var(--gray-50);
+  border-radius: 8px;
+  border: 1px solid var(--gray-200);
+  text-align: center;
+}
+
+.summaryLabel {
+  font-size: 12px;
+  color: var(--gray-600);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.summaryValue {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .geoMap {
+    padding: var(--space-4);
+  }
+  
+  .content {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .mapGrid {
+    grid-template-columns: repeat(3, 1fr);
+    padding: var(--space-3);
+  }
+  
+  .stateMetrics {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-1);
+  }
+  
+  .rankingItem {
+    padding: var(--space-2);
+    gap: var(--space-2);
+  }
+  
+  .summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    gap: var(--space-3);
+  }
+  
+  .mapGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stateMetrics {
+    grid-template-columns: 1fr;
+  }
+  
+  .progressBars {
+    display: none;
+  }
+  
+  .summary {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  
+  .summaryCard {
+    padding: var(--space-3);
+  }
+  
+  .summaryValue {
+    font-size: 18px;
+  }
+}

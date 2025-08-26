@@ -70,3 +70,24 @@ export function useTopProducts(limit = 50) {
 export function useRecentUsers(limit = 50) {
   return useSimpleData('/api/users/recent', { limit });
 }
+
+// Advanced Analytics Hooks
+export function useActivityHeatmap(period = '7d') {
+  return useSimpleData('/api/analytics/activity-heatmap', { period });
+}
+
+export function useConversionFunnel() {
+  return useSimpleData('/api/analytics/conversion-funnel');
+}
+
+export function useCorrelationData() {
+  return useSimpleData('/api/analytics/correlation');
+}
+
+export function useGeographicData() {
+  return useSimpleData('/api/analytics/geographic');
+}
+
+export function useCohortAnalysis() {
+  return useSimpleData('/api/analytics/cohort');
+}

@@ -46,6 +46,21 @@ export class APIService {
       case '/api/users/recent':
         return await dataService.getRecentUsers(params.limit);
         
+      case '/api/analytics/activity-heatmap':
+        return await dataService.getActivityHeatmap(params.period);
+        
+      case '/api/analytics/conversion-funnel':
+        return await dataService.getConversionFunnel();
+        
+      case '/api/analytics/correlation':
+        return await dataService.getCorrelationData();
+        
+      case '/api/analytics/geographic':
+        return await dataService.getGeographicData();
+        
+      case '/api/analytics/cohort':
+        return await dataService.getCohortAnalysis();
+        
       case '/api/analytics/overview':
         return await dataService.getAnalyticsData();
         

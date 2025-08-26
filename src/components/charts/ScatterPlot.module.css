@@ -1,0 +1,148 @@
+.scatterPlot {
+  background: white;
+  border-radius: 12px;
+  padding: var(--space-6);
+  border: 1px solid var(--gray-200);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  margin-bottom: var(--space-6);
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 var(--space-1) 0;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--gray-600);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.chartContainer {
+  height: 400px;
+  position: relative;
+}
+
+.statistics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-4);
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  background: var(--gray-50);
+  border-radius: 8px;
+  border: 1px solid var(--gray-200);
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.statCard:hover {
+  background: var(--gray-100);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.statLabel {
+  font-size: 12px;
+  color: var(--gray-600);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gray-900);
+  line-height: 1.2;
+}
+
+.statValue.positive {
+  color: var(--success-600);
+}
+
+.statValue.neutral {
+  color: var(--warning-600);
+}
+
+.statValue.negative {
+  color: var(--danger-600);
+}
+
+.statDescription {
+  font-size: 11px;
+  color: var(--gray-500);
+  line-height: 1.3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .scatterPlot {
+    padding: var(--space-4);
+  }
+  
+  .chartContainer {
+    height: 300px;
+  }
+  
+  .statistics {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-3);
+  }
+  
+  .statCard {
+    padding: var(--space-3);
+  }
+  
+  .statValue {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    gap: var(--space-4);
+  }
+  
+  .chartContainer {
+    height: 250px;
+  }
+  
+  .statistics {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2);
+  }
+  
+  .statCard {
+    padding: var(--space-2);
+  }
+  
+  .statValue {
+    font-size: 18px;
+  }
+  
+  .statLabel {
+    font-size: 10px;
+  }
+  
+  .statDescription {
+    font-size: 10px;
+  }
+}
