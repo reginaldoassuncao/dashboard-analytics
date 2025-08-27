@@ -1,16 +1,19 @@
 import { Routes, Route } from 'react-router-dom'
+import { AuthProvider } from './contexts/AuthContext'
 import { SimpleDateProvider } from './contexts/SimpleDateContext'
 import { ThemeProvider } from './contexts/ThemeContext'
 import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts'
 import ErrorBoundary from './components/ui/ErrorBoundary'
+import ProtectedRoute from './components/auth/ProtectedRoute'
 import Layout from './components/layout/Layout'
+import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import Analytics from './pages/Analytics'
 import Products from './pages/Products'
 import Users from './pages/Users'
 import Settings from './pages/Settings'
 
-function AppContent() {
+function ProtectedAppContent() {
   useKeyboardShortcuts();
   
   return (
@@ -18,9 +21,17 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/analytics" element={<Analytics />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/users" element={<Users />} />
+        <Route 
+          path="/products" 
+          element={<Products />}
+        />
+        <Route 
+          path="/users" 
+          element={<Users />}
+        />
         <Route path="/settings" element={<Settings />} />
+        {/* Catch all route - redirect to dashboard */}
+        <Route path="*" element={<Dashboard />} />
       </Routes>
     </Layout>
   );
@@ -30,9 +41,24 @@ function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider>
-        <SimpleDateProvider>
-          <AppContent />
-        </SimpleDateProvider>
+        <AuthProvider>
+          <SimpleDateProvider>
+            <Routes>
+              {/* Public routes */}
+              <Route path="/login" element={<Login />} />
+              
+              {/* Protected routes */}
+              <Route 
+                path="/*" 
+                element={
+                  <ProtectedRoute>
+                    <ProtectedAppContent />
+                  </ProtectedRoute>
+                } 
+              />
+            </Routes>
+          </SimpleDateProvider>
+        </AuthProvider>
       </ThemeProvider>
     </ErrorBoundary>
   )

@@ -6,8 +6,11 @@ import {
   Users, 
   Settings,
   ChevronLeft,
-  Menu
+  Menu,
+  LogOut,
+  User
 } from 'lucide-react'
+import { useAuth } from '../../contexts/AuthContext'
 import styles from './Sidebar.module.css'
 
 const navigation = [
@@ -19,6 +22,14 @@ const navigation = [
 ]
 
 function Sidebar({ collapsed, onToggle, hidden }) {
+  const { user, logout, userName, userEmail, userAvatar } = useAuth();
+
+  const handleLogout = () => {
+    if (window.confirm('Tem certeza que deseja sair do sistema?')) {
+      logout();
+    }
+  };
+
   return (
     <div className={`${styles.sidebar} ${collapsed ? styles.collapsed : ''} ${hidden ? styles.hidden : ''}`}>
       <div className={styles.header}>
@@ -59,14 +70,37 @@ function Sidebar({ collapsed, onToggle, hidden }) {
       <div className={styles.footer}>
         {!collapsed && (
           <div className={styles.userInfo}>
-            <div className={styles.avatar}>👤</div>
+            <div className={styles.avatar}>{userAvatar}</div>
             <div className={styles.userDetails}>
-              <div className={styles.userName}>Admin User</div>
-              <div className={styles.userEmail}>admin@dashboard.com</div>
+              <div className={styles.userName}>{userName}</div>
+              <div className={styles.userEmail}>{userEmail}</div>
+              <div className={styles.userRole}>
+                {user?.role || 'admin'} • {user?.permissions?.length || 0} permissões
+              </div>
             </div>
+            <button 
+              className={styles.logoutButton}
+              onClick={handleLogout}
+              title="Logout"
+              aria-label="Fazer logout"
+            >
+              <LogOut size={18} />
+            </button>
           </div>
         )}
-        {collapsed && <div className={styles.avatarCollapsed}>👤</div>}
+        {collapsed && (
+          <div className={styles.collapsedFooter}>
+            <div className={styles.avatarCollapsed}>{userAvatar}</div>
+            <button 
+              className={styles.logoutButtonCollapsed}
+              onClick={handleLogout}
+              title="Logout"
+              aria-label="Fazer logout"
+            >
+              <LogOut size={18} />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   )
