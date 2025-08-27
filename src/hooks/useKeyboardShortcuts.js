@@ -31,12 +31,6 @@ export function useKeyboardShortcuts() {
           toggleTheme();
           break;
 
-        // Ctrl/Cmd + E - Export PDF
-        case isCmd && key === 'e':
-          event.preventDefault();
-          // Trigger export function
-          document.querySelector('[title*="Exportar relatório PDF"]')?.click();
-          break;
 
         // Ctrl/Cmd + P - Presentation mode
         case isCmd && key === 'p':
@@ -89,7 +83,6 @@ export function useKeyboardShortcuts() {
   const shortcuts = [
     { key: 'F11', description: 'Toggle fullscreen', action: toggleFullscreen },
     { key: 'Ctrl + D', description: 'Toggle dark/light theme', action: toggleTheme },
-    { key: 'Ctrl + E', description: 'Export PDF report' },
     { key: 'Ctrl + P', description: 'Presentation mode' },
     { key: 'Esc', description: 'Exit fullscreen' },
     { key: '?', description: 'Show shortcuts' },
