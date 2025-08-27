@@ -1,0 +1,648 @@
+/* Products List Styles */
+.productsList {
+  width: 100%;
+}
+
+.header {
+  margin-bottom: var(--space-6);
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-6);
+}
+
+.headerInfo {
+  flex: 1;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text-primary, var(--gray-900));
+  margin: 0 0 var(--space-2);
+}
+
+.count {
+  font-size: 18px;
+  color: var(--text-secondary, var(--gray-500));
+  font-weight: 400;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: var(--text-secondary, var(--gray-600));
+  margin: 0;
+}
+
+.createButton {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  background: var(--primary-500);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.createButton:hover {
+  background: var(--primary-600);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Stats Cards */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-4);
+}
+
+.statCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+  background: var(--card-bg, white);
+  border: 1px solid var(--border-color, var(--gray-200));
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.statCard:hover {
+  border-color: var(--primary-300, #93c5fd);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+.statIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--primary-50);
+  color: var(--primary-500);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.statContent {
+  flex: 1;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary, var(--gray-900));
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.statLabel {
+  font-size: 14px;
+  color: var(--text-secondary, var(--gray-600));
+  margin-top: var(--space-1);
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  align-items: center;
+}
+
+.searchContainer {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-400);
+  z-index: 1;
+}
+
+.searchInput {
+  width: 100%;
+  padding: var(--space-3) var(--space-4) var(--space-3) var(--space-12);
+  border: 2px solid var(--border-color, var(--gray-200));
+  border-radius: 8px;
+  font-size: 14px;
+  background: var(--card-bg, white);
+  color: var(--text-primary, var(--gray-900));
+  transition: all 0.2s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.filterActions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.filterButton {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--card-bg, white);
+  color: var(--text-secondary, var(--gray-600));
+  border: 1px solid var(--border-color, var(--gray-200));
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filterButton:hover, .filterButton.active {
+  border-color: var(--primary-500);
+  color: var(--primary-500);
+}
+
+.clearButton {
+  padding: var(--space-3) var(--space-4);
+  background: none;
+  color: var(--text-secondary, var(--gray-600));
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.clearButton:hover {
+  color: var(--primary-500);
+}
+
+/* Advanced Filters */
+.advancedFilters {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+  background: var(--card-bg, white);
+  border: 1px solid var(--border-color, var(--gray-200));
+  border-radius: 8px;
+  margin-bottom: var(--space-6);
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 150px;
+}
+
+.filterLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary, var(--gray-600));
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filterSelect {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border-color, var(--gray-200));
+  border-radius: 6px;
+  font-size: 14px;
+  background: var(--card-bg, white);
+  color: var(--text-primary, var(--gray-900));
+}
+
+/* Table */
+.tableContainer {
+  background: var(--card-bg, white);
+  border: 1px solid var(--border-color, var(--gray-200));
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead th {
+  padding: var(--space-4) var(--space-6);
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--border-color, var(--gray-200));
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary, var(--gray-600));
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sortable {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: color 0.2s ease;
+}
+
+.sortable:hover {
+  color: var(--primary-500);
+}
+
+.checkboxColumn {
+  width: 50px;
+  text-align: center;
+}
+
+.tableRow {
+  border-bottom: 1px solid var(--border-color, var(--gray-200));
+  transition: background-color 0.2s ease;
+}
+
+.tableRow:hover {
+  background: var(--gray-50);
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableRow td {
+  padding: var(--space-4) var(--space-6);
+  font-size: 14px;
+  color: var(--text-primary, var(--gray-900));
+  vertical-align: middle;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary-500);
+}
+
+.productCell {
+  min-width: 250px;
+}
+
+.productInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.productImage {
+  width: 40px;
+  height: 40px;
+  background: var(--gray-100);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-400);
+  flex-shrink: 0;
+}
+
+.productDetails {
+  flex: 1;
+  min-width: 0;
+}
+
+.productName {
+  font-weight: 500;
+  color: var(--text-primary, var(--gray-900));
+  margin-bottom: 2px;
+}
+
+.productDescription {
+  font-size: 12px;
+  color: var(--text-secondary, var(--gray-500));
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sku {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--text-secondary, var(--gray-500));
+}
+
+.category {
+  padding: var(--space-1) var(--space-2);
+  background: var(--primary-50);
+  color: var(--primary-600);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.price {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  color: var(--text-primary, var(--gray-900));
+}
+
+.stockInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stockValue {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  color: var(--text-primary, var(--gray-900));
+}
+
+.stockStatus {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stockStatus.success { color: var(--success-500); }
+.stockStatus.warning { color: var(--warning-500); }
+.stockStatus.danger { color: var(--danger-500); }
+
+.statusBadge {
+  padding: var(--space-1) var(--space-2);
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statusBadge.success {
+  background: var(--success-50);
+  color: var(--success-500);
+}
+
+.statusBadge.warning {
+  background: var(--warning-50);
+  color: var(--warning-500);
+}
+
+.statusBadge.danger {
+  background: var(--danger-50);
+  color: var(--danger-500);
+}
+
+.statusBadge.gray {
+  background: var(--gray-100);
+  color: var(--gray-600);
+}
+
+.actionsCell {
+  width: 100px;
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: 1px solid var(--border-color, var(--gray-200));
+  border-radius: 6px;
+  color: var(--text-secondary, var(--gray-500));
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.actionButton:hover {
+  border-color: var(--primary-500);
+  color: var(--primary-500);
+}
+
+.actionButton.danger:hover {
+  border-color: var(--danger-500);
+  color: var(--danger-500);
+}
+
+.actionButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Empty State */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16) var(--space-8);
+  text-align: center;
+  color: var(--text-secondary, var(--gray-500));
+}
+
+.emptyState svg {
+  margin-bottom: var(--space-4);
+  opacity: 0.5;
+}
+
+.emptyState h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary, var(--gray-900));
+  margin: 0 0 var(--space-2);
+}
+
+.emptyState p {
+  font-size: 14px;
+  margin: 0 0 var(--space-6);
+  max-width: 400px;
+}
+
+.emptyButton {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  background: var(--primary-500);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.emptyButton:hover {
+  background: var(--primary-600);
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4) var(--space-6);
+  background: var(--card-bg, white);
+  border: 1px solid var(--border-color, var(--gray-200));
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  font-size: 14px;
+  color: var(--text-secondary, var(--gray-600));
+}
+
+.footerInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.selectedInfo {
+  color: var(--primary-500);
+  font-weight: 500;
+}
+
+.bulkActions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.bulkButton {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--primary-500);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.bulkButton:hover {
+  background: var(--primary-600);
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: var(--space-4);
+  color: var(--text-secondary, var(--gray-600));
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .advancedFilters {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerContent {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  
+  .createButton {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .filters {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  
+  .searchContainer {
+    max-width: none;
+  }
+  
+  .advancedFilters {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  
+  .filterGroup {
+    min-width: auto;
+  }
+  
+  .table {
+    font-size: 13px;
+  }
+  
+  .table thead th,
+  .table tbody td {
+    padding: var(--space-3) var(--space-4);
+  }
+  
+  .productCell {
+    min-width: 200px;
+  }
+  
+  .footer {
+    flex-direction: column;
+    gap: var(--space-3);
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 24px;
+  }
+  
+  .statCard {
+    padding: var(--space-3) var(--space-4);
+  }
+  
+  .statIcon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .statValue {
+    font-size: 20px;
+  }
+  
+  .tableContainer {
+    overflow-x: auto;
+  }
+  
+  .table {
+    min-width: 800px;
+  }
+}

@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext'
+import { ProductsProvider } from './contexts/ProductsContext'
 import { SimpleDateProvider } from './contexts/SimpleDateContext'
 import { ThemeProvider } from './contexts/ThemeContext'
 import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts'
@@ -10,6 +11,7 @@ import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import Analytics from './pages/Analytics'
 import Products from './pages/Products'
+import ProductForm from './pages/ProductForm'
 import Users from './pages/Users'
 import Settings from './pages/Settings'
 
@@ -21,14 +23,10 @@ function ProtectedAppContent() {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/analytics" element={<Analytics />} />
-        <Route 
-          path="/products" 
-          element={<Products />}
-        />
-        <Route 
-          path="/users" 
-          element={<Users />}
-        />
+        <Route path="/products" element={<Products />} />
+        <Route path="/products/new" element={<ProductForm />} />
+        <Route path="/products/edit/:id" element={<ProductForm />} />
+        <Route path="/users" element={<Users />} />
         <Route path="/settings" element={<Settings />} />
         {/* Catch all route - redirect to dashboard */}
         <Route path="*" element={<Dashboard />} />
@@ -42,22 +40,24 @@ function App() {
     <ErrorBoundary>
       <ThemeProvider>
         <AuthProvider>
-          <SimpleDateProvider>
-            <Routes>
-              {/* Public routes */}
-              <Route path="/login" element={<Login />} />
-              
-              {/* Protected routes */}
-              <Route 
-                path="/*" 
-                element={
-                  <ProtectedRoute>
-                    <ProtectedAppContent />
-                  </ProtectedRoute>
-                } 
-              />
-            </Routes>
-          </SimpleDateProvider>
+          <ProductsProvider>
+            <SimpleDateProvider>
+              <Routes>
+                {/* Public routes */}
+                <Route path="/login" element={<Login />} />
+                
+                {/* Protected routes */}
+                <Route 
+                  path="/*" 
+                  element={
+                    <ProtectedRoute>
+                      <ProtectedAppContent />
+                    </ProtectedRoute>
+                  } 
+                />
+              </Routes>
+            </SimpleDateProvider>
+          </ProductsProvider>
         </AuthProvider>
       </ThemeProvider>
     </ErrorBoundary>

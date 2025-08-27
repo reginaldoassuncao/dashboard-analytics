@@ -1,19 +1,22 @@
-import ProductsTable from '../components/table/ProductsTable';
-import styles from './Products.module.css';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import ProductsList from '../components/products/ProductsList';
 
 function Products() {
-  return (
-    <div className={styles.products}>
-      <div className={styles.header}>
-        <h1 className={styles.title}>Gestão de Produtos</h1>
-        <p className={styles.subtitle}>
-          Visualize e gerencie todos os produtos da plataforma
-        </p>
-      </div>
+  const location = useLocation();
+
+  // Handle success messages from form
+  useEffect(() => {
+    if (location.state?.message) {
+      // In a real app, you might show a toast notification here
+      console.log(`${location.state.type}: ${location.state.message}`);
       
-      <ProductsTable />
-    </div>
-  )
+      // Clear the state to prevent showing message again
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
+
+  return <ProductsList />;
 }
 
 export default Products
