@@ -9,7 +9,6 @@ import ProtectedRoute from './components/auth/ProtectedRoute'
 import Layout from './components/layout/Layout'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
-import Analytics from './pages/Analytics'
 import Products from './pages/Products'
 import ProductForm from './pages/ProductForm'
 import Users from './pages/Users'
@@ -22,7 +21,6 @@ function ProtectedAppContent() {
     <Layout>
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/analytics" element={<Analytics />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/new" element={<ProductForm />} />
         <Route path="/products/edit/:id" element={<ProductForm />} />

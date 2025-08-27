@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { 
   LayoutDashboard, 
-  BarChart3, 
   ShoppingBag, 
   Users, 
   Settings,
@@ -15,7 +14,6 @@ import styles from './Sidebar.module.css'
 
 const navigation = [
   { name: 'Dashboard', href: '/', icon: LayoutDashboard },
-  { name: 'Analytics', href: '/analytics', icon: BarChart3 },
   { name: 'Produtos', href: '/products', icon: ShoppingBag },
   { name: 'Usuários', href: '/users', icon: Users },
   { name: 'Configurações', href: '/settings', icon: Settings },
