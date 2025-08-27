@@ -16,7 +16,8 @@
       "Bash(npm run lint)",
       "Read(c:\\Users\\regia\\Pictures\\Screenshots/**)",
       "Read(c:\\Users\\regia\\Pictures\\Screenshots/**)",
-      "Bash(del \"C:\\Users\\regia\\Documents\\dashboard-analytics\\src\\pages\\Analytics.jsx\")"
+      "Bash(del \"C:\\Users\\regia\\Documents\\dashboard-analytics\\src\\pages\\Analytics.jsx\")",
+      "Read(c:\\Users\\regia\\Pictures\\Screenshots/**)"
     ],
     "deny": [],
     "ask": []

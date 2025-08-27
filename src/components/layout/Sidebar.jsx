@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom'
 import { 
   LayoutDashboard, 
   ShoppingBag, 
-  Users, 
   Settings,
   ChevronLeft,
   Menu,
@@ -15,7 +14,6 @@ import styles from './Sidebar.module.css'
 const navigation = [
   { name: 'Dashboard', href: '/', icon: LayoutDashboard },
   { name: 'Produtos', href: '/products', icon: ShoppingBag },
-  { name: 'Usuários', href: '/users', icon: Users },
   { name: 'Configurações', href: '/settings', icon: Settings },
 ]
 

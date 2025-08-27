@@ -11,7 +11,6 @@ import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import Products from './pages/Products'
 import ProductForm from './pages/ProductForm'
-import Users from './pages/Users'
 import Settings from './pages/Settings'
 
 function ProtectedAppContent() {
@@ -24,7 +23,6 @@ function ProtectedAppContent() {
         <Route path="/products" element={<Products />} />
         <Route path="/products/new" element={<ProductForm />} />
         <Route path="/products/edit/:id" element={<ProductForm />} />
-        <Route path="/users" element={<Users />} />
         <Route path="/settings" element={<Settings />} />
         {/* Catch all route - redirect to dashboard */}
         <Route path="*" element={<Dashboard />} />
