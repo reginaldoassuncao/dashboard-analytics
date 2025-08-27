@@ -1,0 +1,241 @@
+/* Real Charts Grid Styles */
+.chartsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.chartContainer {
+  background: var(--card-bg, white);
+  border: 1px solid var(--border-color, var(--gray-200));
+  border-radius: 12px;
+  padding: var(--space-6);
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-4);
+}
+
+.chartInfo {
+  flex: 1;
+}
+
+.chartTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary, var(--gray-900));
+  margin: 0 0 var(--space-1);
+}
+
+.chartSubtitle {
+  font-size: 14px;
+  color: var(--text-secondary, var(--gray-600));
+  margin: 0;
+}
+
+.refreshButton {
+  background: none;
+  border: 1px solid var(--border-color, var(--gray-200));
+  border-radius: 6px;
+  padding: var(--space-2);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+}
+
+.refreshButton:hover:not(:disabled) {
+  border-color: var(--primary-500);
+  background: var(--primary-50);
+}
+
+.refreshButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.chartContent {
+  position: relative;
+  min-height: 350px;
+}
+
+/* Loading State */
+.chartLoading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 350px;
+  gap: var(--space-3);
+  color: var(--text-secondary, var(--gray-600));
+}
+
+.chartLoading p {
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Empty State */
+.chartEmpty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 350px;
+  color: var(--text-secondary, var(--gray-500));
+}
+
+.chartEmpty p {
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Refresh All Section */
+.refreshAllContainer {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-4);
+}
+
+.refreshAllButton {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  background: var(--primary-500);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.refreshAllButton:hover:not(:disabled) {
+  background: var(--primary-600);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.refreshAllButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .chartsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+  }
+}
+
+@media (max-width: 900px) {
+  .chartsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .chartContainer {
+    padding: var(--space-5);
+  }
+  
+  .chartTitle {
+    font-size: 16px;
+  }
+  
+  .chartSubtitle {
+    font-size: 13px;
+  }
+  
+  .chartContent {
+    min-height: 300px;
+  }
+  
+  .chartLoading {
+    min-height: 300px;
+  }
+  
+  .chartEmpty {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .chartContainer {
+    padding: var(--space-4);
+  }
+  
+  .chartHeader {
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: flex-start;
+  }
+  
+  .refreshButton {
+    align-self: flex-end;
+  }
+  
+  .chartContent {
+    min-height: 250px;
+  }
+  
+  .chartLoading {
+    min-height: 250px;
+  }
+  
+  .chartEmpty {
+    min-height: 250px;
+  }
+  
+  .refreshAllButton {
+    padding: var(--space-3) var(--space-5);
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chartsGrid {
+    gap: var(--space-3);
+  }
+  
+  .chartContainer {
+    padding: var(--space-3);
+  }
+  
+  .chartTitle {
+    font-size: 15px;
+  }
+  
+  .chartSubtitle {
+    font-size: 12px;
+  }
+  
+  .refreshAllButton {
+    padding: var(--space-2) var(--space-4);
+    font-size: 12px;
+  }
+}

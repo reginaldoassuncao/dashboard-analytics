@@ -8,12 +8,27 @@
   text-align: left;
 }
 
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-6);
+}
+
+.headerInfo {
+  flex: 1;
+}
+
 .title {
   font-size: 32px;
   font-weight: 800;
   color: var(--gray-900);
   margin: 0 0 var(--space-2) 0;
   letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--primary-600), var(--success-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .subtitle {
@@ -21,6 +36,133 @@
   color: var(--gray-600);
   margin: 0;
   line-height: 1.5;
+}
+
+/* Data Toggle */
+.dataToggle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-2);
+}
+
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background: var(--card-bg, white);
+  border: 1px solid var(--border-color, var(--gray-200));
+  border-radius: 8px;
+}
+
+.toggleLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary, var(--gray-600));
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.toggle {
+  background: none;
+  border: none;
+  color: var(--text-secondary, var(--gray-500));
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-1);
+  border-radius: 4px;
+}
+
+.toggle:hover {
+  color: var(--primary-500);
+  background: var(--primary-50);
+}
+
+.toggleActive {
+  color: var(--primary-500);
+}
+
+.realDataInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.realDataIndicator {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--success-600);
+  background: var(--success-50);
+  padding: var(--space-1) var(--space-2);
+  border-radius: 4px;
+  border: 1px solid var(--success-200, #bbf7d0);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* No Data Message */
+.noDataMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  text-align: center;
+  color: var(--text-secondary, var(--gray-500));
+  background: var(--card-bg, white);
+  border: 1px solid var(--border-color, var(--gray-200));
+  border-radius: 12px;
+  padding: var(--space-8);
+  margin-top: var(--space-8);
+}
+
+.noDataMessage svg {
+  opacity: 0.5;
+  margin-bottom: var(--space-4);
+}
+
+.noDataMessage h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary, var(--gray-900));
+  margin: 0 0 var(--space-3);
+}
+
+.noDataMessage p {
+  font-size: 16px;
+  margin: 0 0 var(--space-6);
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+.addProductsLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  background: var(--primary-500);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.addProductsLink:hover {
+  background: var(--primary-600);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 @keyframes fadeIn {
@@ -41,11 +183,34 @@
     text-align: center;
   }
   
+  .headerContent {
+    flex-direction: column;
+    gap: var(--space-4);
+    align-items: center;
+  }
+  
+  .dataToggle {
+    align-items: center;
+  }
+  
   .title {
     font-size: 28px;
   }
   
   .subtitle {
+    font-size: 14px;
+  }
+  
+  .noDataMessage {
+    padding: var(--space-6);
+    min-height: 250px;
+  }
+  
+  .noDataMessage h3 {
+    font-size: 18px;
+  }
+  
+  .noDataMessage p {
     font-size: 14px;
   }
 }
