@@ -17,7 +17,7 @@ const navigation = [
   { name: 'Configurações', href: '/settings', icon: Settings },
 ]
 
-function Sidebar({ collapsed, onToggle, hidden }) {
+function Sidebar({ collapsed, onToggle, onNavigate, hidden }) {
   const { user, logout, userName, userEmail, userAvatar } = useAuth();
 
   const handleLogout = () => {
@@ -53,6 +53,12 @@ function Sidebar({ collapsed, onToggle, hidden }) {
                   className={({ isActive }) => 
                     `${styles.navLink} ${isActive ? styles.active : ''}`
                   }
+                  onClick={() => {
+                    // Call onNavigate when clicking a navigation link
+                    if (onNavigate) {
+                      onNavigate()
+                    }
+                  }}
                 >
                   <Icon size={20} className={styles.navIcon} />
                   {!collapsed && <span className={styles.navText}>{item.name}</span>}
