@@ -317,61 +317,115 @@
   
   .main {
     flex-direction: column;
-    gap: var(--space-8);
+    gap: var(--space-6);
     text-align: center;
   }
   
   .welcome {
     max-width: 100%;
+    order: 2; /* Move welcome section after form */
   }
   
+  .formContainer {
+    order: 1; /* Form appears first on mobile */
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  /* Simplify welcome section on mobile */
   .welcomeTitle {
-    font-size: 32px;
+    font-size: 24px;
+    margin-bottom: var(--space-4);
   }
   
   .welcomeText {
-    font-size: 16px;
+    font-size: 15px;
+    margin-bottom: var(--space-4);
   }
   
+  /* Hide features on mobile for cleaner look */
+  .features {
+    display: none;
+  }
+  
+  /* Simplify stats on mobile */
   .stats {
-    gap: var(--space-6);
-  }
-  
-  .stat strong {
-    font-size: 20px;
-  }
-  
-  .feature {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .header {
-    margin-bottom: var(--space-6);
-  }
-  
-  .logoText {
-    font-size: 20px;
-  }
-  
-  .welcomeTitle {
-    font-size: 28px;
-  }
-  
-  .stats {
-    flex-direction: column;
     gap: var(--space-4);
     padding: var(--space-4);
-  }
-  
-  .stat {
-    flex-direction: row;
-    gap: var(--space-2);
+    margin-bottom: var(--space-4);
   }
   
   .stat strong {
     font-size: 18px;
+  }
+  
+  .stat span {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: var(--space-3);
+  }
+  
+  .header {
+    margin-bottom: var(--space-4);
+  }
+  
+  .logoText {
+    font-size: 18px;
+  }
+  
+  .logoIcon {
+    font-size: 24px;
+  }
+  
+  .themeToggle {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .main {
+    gap: var(--space-4);
+  }
+  
+  /* Ultra-clean mobile layout */
+  .welcomeTitle {
+    font-size: 20px;
+    margin-bottom: var(--space-3);
+  }
+  
+  .welcomeText {
+    font-size: 14px;
+    margin-bottom: var(--space-3);
+  }
+  
+  /* More compact stats */
+  .stats {
+    flex-direction: row;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+  
+  .stat {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  
+  .stat strong {
+    font-size: 16px;
+  }
+  
+  .stat span {
+    font-size: 10px;
+  }
+  
+  /* Reduce footer text */
+  .footerText {
+    font-size: 12px;
   }
 }
 

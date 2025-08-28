@@ -308,35 +308,101 @@
 /* Responsive */
 @media (max-width: 768px) {
   .form {
-    padding: var(--space-6);
+    padding: var(--space-5);
     border-radius: 12px;
     max-width: 100%;
-    margin: 0 var(--space-4);
+    margin: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    margin-bottom: var(--space-6);
+  }
+  
+  .icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--space-3);
   }
   
   .title {
-    font-size: 22px;
+    font-size: 20px;
   }
   
   .subtitle {
     font-size: 14px;
   }
+  
+  .fields {
+    gap: var(--space-5);
+    margin-bottom: var(--space-6);
+  }
+  
+  .input {
+    padding-left: var(--space-12);
+    padding-right: var(--space-12);
+  }
 }
 
 @media (max-width: 480px) {
   .form {
-    padding: var(--space-5);
+    padding: var(--space-4);
     border-radius: 8px;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    margin-bottom: var(--space-5);
+  }
+  
+  .icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: var(--space-2);
+    border-radius: 12px;
+  }
+  
+  .title {
+    font-size: 18px;
+    margin-bottom: var(--space-1);
+  }
+  
+  .subtitle {
+    font-size: 13px;
+  }
+  
+  .fields {
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
   }
   
   .input {
     font-size: 16px; /* Prevent zoom on iOS */
-    padding: var(--space-3);
-    padding-left: var(--space-11);
+    padding: var(--space-3) var(--space-12) var(--space-3) var(--space-12);
+  }
+  
+  .inputIcon {
+    left: var(--space-4);
   }
   
   .submitButton {
-    padding: var(--space-4);
+    padding: var(--space-3) var(--space-4);
     font-size: 15px;
+    min-height: 44px;
+  }
+  
+  .demo {
+    padding: var(--space-3);
+  }
+  
+  .demoText {
+    font-size: 12px;
+    margin-bottom: var(--space-2);
+  }
+  
+  .demoButton {
+    padding: var(--space-1) var(--space-3);
+    font-size: 11px;
   }
 }
