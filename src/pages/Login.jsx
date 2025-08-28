@@ -103,23 +103,23 @@ function Login() {
         <footer className={styles.footer}>
           <div className={styles.stats}>
             <div className={styles.stat}>
-              <strong>2.8M+</strong>
-              <span>Revenue Tracked</span>
+              <strong>R$ 2,8M+</strong>
+              <span>Receita Monitorada</span>
             </div>
             <div className={styles.stat}>
               <strong>18K+</strong>
-              <span>Orders Processed</span>
+              <span>Pedidos Processados</span>
             </div>
             <div className={styles.stat}>
               <strong>45K+</strong>
-              <span>Active Users</span>
+              <span>Usuários Ativos</span>
             </div>
           </div>
           
           <p className={styles.footerText}>
-            Dashboard Analytics v2.0 • Portfolio Project by{' '}
+            Dashboard Analytics v2.0 • Portfólio criado por{' '}
             <a href="#" className={styles.footerLink}>
-              Seu Nome
+              Reginaldo Assunção
             </a>
           </p>
         </footer>
